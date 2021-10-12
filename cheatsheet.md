@@ -12,7 +12,7 @@ echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permane
 alias k=kubectl
 complete -F __start_kubectl k
 
-alias kdp=`kubectl delete pod --force --grace-period=0`
+alias kdp='kubectl delete pod --force --grace-period=0'
 kdp PODNAME -n NAMESPACE
 ```
 
