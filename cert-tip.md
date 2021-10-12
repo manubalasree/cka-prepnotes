@@ -36,3 +36,4 @@ kubectl create -f nginx-deployment.yaml
 ## In k8s version 1.19+, we can specify the --replicas option to create a deployment with 4 replicas.
 
 kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o yaml > nginx-deployment.yaml
+
