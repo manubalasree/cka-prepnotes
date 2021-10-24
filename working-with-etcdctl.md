@@ -20,13 +20,13 @@ etcdctl snapshot save -h and keep a note of the mandatory global options.
 
 Since our ETCD database is TLS-Enabled, the following options are mandatory:
 
---cacert                                                verify certificates of TLS-enabled secure servers using this CA bundle
+--cacert                             verify certificates of TLS-enabled secure servers using this CA bundle
 
---cert                                                    identify secure client using this TLS certificate file
+--cert                               identify secure client using this TLS certificate file
 
---endpoints=[127.0.0.1:2379]          This is the default as ETCD is running on master node and exposed on localhost 2379.
+--endpoints=[127.0.0.1:2379]         This is the default as ETCD is running on master node and exposed on localhost 2379.
 
---key                                                      identify secure client using this TLS key file
+--key                                identify secure client using this TLS key file
 
 
 Similarly use the help option for snapshot restore to see all available options for restoring the backup.
