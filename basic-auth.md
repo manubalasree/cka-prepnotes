@@ -3,7 +3,7 @@
 Setup basic authentication on Kubernetes (Deprecated in 1.19)
 Note: This is not recommended in a production environment. This is only for learning purposes. Also note that this approach is deprecated in Kubernetes version 1.19 and is no longer available in later releases
 
-### Follow the below instructions to configure basic authentication in a kubeadm setup.
+## Follow the below instructions to configure basic authentication in a kubeadm setup.
 
 Create a file with user details locally at /tmp/users/user-details.csv
 
