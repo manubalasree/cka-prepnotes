@@ -1,4 +1,5 @@
-Article on Setting up Basic Authentication
+# Article on Setting up Basic Authentication
+
 Setup basic authentication on Kubernetes (Deprecated in 1.19)
 Note: This is not recommended in a production environment. This is only for learning purposes. Also note that this approach is deprecated in Kubernetes version 1.19 and is no longer available in later releases
 
@@ -16,8 +17,7 @@ password123,user5,u0005
 
 Edit the kube-apiserver static pod configured by kubeadm to pass in the user details. The file is located at /etc/kubernetes/manifests/kube-apiserver.yaml
 
-
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -39,7 +39,7 @@ spec:
       path: /tmp/users
       type: DirectoryOrCreate
     name: usr-details
-
+```
 
 Modify the kube-apiserver startup options to include the basic-auth file
 
