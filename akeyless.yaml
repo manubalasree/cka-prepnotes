@@ -1,0 +1,93 @@
+# Default values for akeyless-services.
+
+replicaCount: 3
+
+image:
+  repository: akeyless/base
+  pullPolicy: IfNotPresent
+  tag: latest
+
+containerName: "api-gateway"
+
+service:
+  annotations: {}
+  type: LoadBalancer
+  ports:
+    - name: ****
+      port: 8080
+      protocol: TCP
+    - name: ****
+      port: 8200
+      protocol: TCP
+    - name: ****
+      port: 8081
+      protocol: TCP
+
+ingress:
+  ## Set to true to enable ingress record generation
+  enabled: true
+
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/certificate-arn: ***** 
+
+  rules:
+    - servicePort: ****
+      serviceName: ****
+      hostname: "***.akeyless.io"
+    - servicePort: ****
+      serviceName: ****
+      hostname: "****.akeyless.io"
+    - servicePort: ****
+      serviceName: ****
+      hostname: "****.akeyless.io"
+
+
+
+  ## Path for the default host
+  ##
+  path: /*
+
+  ## Enable TLS configuration for the hostname defined at ingress.hostname parameter
+  ## TLS certificates will be retrieved from a TLS secret with name: {{- printf "%s-tls" .Values.ingress.hostname }}
+  ## or a custom one if you use the tls.existingSecret parameter
+  ##
+  tls: true
+
+  ## Set this to true in order to add the corresponding annotations for cert-manager
+  ##
+  certManager: false
+
+#  existingSecret:
+
+resources:
+  limits:
+    memory: 1Gi
+  requests:
+    cpu: 200m
+    memory: 700Mi
+
+version: 2.9.1
+
+env:
+  - name: ******
+    value: "true"
+  - name: *****
+    value: "true"
+
+akeylessUserAuth:
+  adminAccessId: ****
+  adminAccessKey: 
+  adminPassword:
+  clusterName: "****"
+  configProtectionKeyName:
+
+HPA:
+  # Set the below to false in case you do not want to add Horizontal Pod AutoScaling to the StatefulSet (not recommended)
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 14
+  cpuAvgUtil: 50
+  memAvgUtil: 70
