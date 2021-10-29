@@ -46,6 +46,7 @@ kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o y
 * https://www.youtube.com/watch?v=qRPNuT080Hk
 
 ## Important Note about CNI and CKA Exam
+
 An important tip about deploying Network Addons in a Kubernetes cluster.
 
 
