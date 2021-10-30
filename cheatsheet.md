@@ -327,3 +327,7 @@ Get updates
 ```
 az aks get-upgrades --resource-group <Resource Group Name> --name <AKS Name>
 ```
+
+## Inspect kube-api server
+
+Inspect the setting on kube-api server by running on command cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep cluster-ip-range
